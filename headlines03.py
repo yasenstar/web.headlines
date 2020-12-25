@@ -18,9 +18,28 @@ RSS_FEEDS = {
 }
 
 @app.route("/")
-@app.route("/<publication>")
 
-def get_news(publication="bbc"):
+@app.route("/bbc")
+def bbc():
+    return get_news('bbc')
+
+@app.route("/cnn")
+def cnn():
+    return get_news('cnn')
+
+@app.route("/fox")
+def fox():
+    return get_news('fox')
+
+@app.route("/iol")
+def iol():
+    return get_news('iol')
+
+@app.route("/sohu")
+def sohu():
+    return get_news('sohu')
+
+def get_news(publication):
     feed = feedparser.parse(RSS_FEEDS[publication])
     first_article = feed['entries'][random.randrange(0,9,1)]
     return """<html>
