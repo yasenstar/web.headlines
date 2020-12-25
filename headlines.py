@@ -1,4 +1,4 @@
-# static route, add random generator for getting random feed from first 10 news
+# dynamic routing
 
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
